@@ -12,11 +12,11 @@ const {
 } = require("../controllers/personajes.controller");
 
 
-router.get("/", getAllPersonajes);
-router.get("/:id", getPersonajeByID);
-router.post("/", createPersonaje);
-router.post("/:id", upload.single("foto"), createPersonaje);
-router.patch("/:id", patchPersonaje);
-router.delete("/:id", deletePersonaje)
+router.get("/bokunohero", getAllPersonajes);
+router.get("/bokunohero/:id", getPersonajeByID);
+router.post("/bokunohero", createPersonaje);
+router.post("/bokunohero/:id", upload.single("foto"), createPersonaje);
+router.patch("/bokunohero/:id", patchPersonaje);
+router.delete("/bokunohero/:id", deletePersonaje)
 
 module.exports = router;
