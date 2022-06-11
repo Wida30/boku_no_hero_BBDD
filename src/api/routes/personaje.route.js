@@ -5,18 +5,22 @@ const router = express.Router();
 
 const {
   getAllPersonajes,
-  getPersonajeByID,
-  createPersonaje,
-    deletePersonaje,
+    getPersonajeByID,
+    getPersonajeBynombre,
+    getPersonajeByOrder,
+    createPersonaje,
     patchPersonaje,
+    deletePersonaje
 } = require("../controllers/personajes.controller");
 
 
-router.get("/bokunohero", getAllPersonajes);
-router.get("/bokunohero/:id", getPersonajeByID);
-router.post("/bokunohero", createPersonaje);
-router.post("/bokunohero/:id", upload.single("foto"), createPersonaje);
-router.patch("/bokunohero/:id", patchPersonaje);
-router.delete("/bokunohero/:id", deletePersonaje)
+router.get("/", getAllPersonajes);
+router.get("/:id", getPersonajeByID);
+router.get("/nombre/:nombre", getPersonajeBynombre);
+router.get("/id/:id", getPersonajeByOrder)
+router.post("/", createPersonaje);
+router.post("/:id", upload.single("foto"), createPersonaje);
+router.patch("/:id", patchPersonaje);
+router.delete("/:id", deletePersonaje)
 
 module.exports = router;

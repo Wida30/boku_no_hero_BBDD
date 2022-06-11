@@ -46,7 +46,8 @@ server.use(cors({
 
 server.set("secretKey", JWT_SECRET)
 
-server.use("/", personajesRouter);
+server.use("/bokunohero", personajesRouter);
+
 
 const PORT = process.env.PORT || 8000;
 

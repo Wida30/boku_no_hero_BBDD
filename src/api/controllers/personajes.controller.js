@@ -28,6 +28,36 @@ const getPersonajeByID = async (req, res, next) => {
     }
   };
 
+
+
+  const getPersonajeBynombre = async (req, res, next) => {
+    try {
+      const {nombre} = req.params;
+      const personajesBynombre = await Personaje.findOne({nombre: nombre});
+      return res.json({
+        status: 200,
+        message: HTTPSTATUSCODE[200],
+        personaje: personajesBynombre,
+      });
+    } catch (error) {
+      return next(error);
+    }
+  };
+
+  const getPersonajeByOrder = async (req, res, next) => {
+    try {
+      const {id} = req.params;
+      const personajesByOrder = await Personaje.findOne({id: id});
+      return res.json({
+        status: 200,
+        message: HTTPSTATUSCODE[200],
+        personaje: personajesByOrder,
+      });
+    } catch (error) {
+      return next(error);
+    }
+  };
+
   const createPersonaje= async (req, res, next) => {
     try {
       const newPersonaje = new Personaje(req.body);
@@ -83,6 +113,8 @@ module.exports = {
 
     getAllPersonajes,
     getPersonajeByID,
+    getPersonajeBynombre,
+    getPersonajeByOrder,
     createPersonaje,
     patchPersonaje,
     deletePersonaje
