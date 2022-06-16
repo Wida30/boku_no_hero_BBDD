@@ -58,6 +58,20 @@ const getPersonajeByID = async (req, res, next) => {
     }
   };
 
+  const getPersonajeByRol = async (req, res, next) => {
+    try {
+      const {rol} = req.params;
+      const personajesByRol = await Personaje.find({rol  : rol});
+      return res.json({
+        status: 200,
+        message: HTTPSTATUSCODE[200],
+        personaje: personajesByRol,
+      });
+    } catch (error) {
+      return next(error);
+    }
+  };
+
   const createPersonaje= async (req, res, next) => {
     try {
       const newPersonaje = new Personaje(req.body);
@@ -115,6 +129,7 @@ module.exports = {
     getPersonajeByID,
     getPersonajeBynombre,
     getPersonajeByOrder,
+    getPersonajeByRol,
     createPersonaje,
     patchPersonaje,
     deletePersonaje
