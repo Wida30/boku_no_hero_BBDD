@@ -9,6 +9,7 @@ const {
     getPersonajeBynombre,
     getPersonajeByOrder,
     createPersonaje,
+    getPersonajeByRol,
     patchPersonaje,
     deletePersonaje
 } = require("../controllers/personajes.controller");
@@ -17,10 +18,11 @@ const {
 router.get("/", getAllPersonajes);
 router.get("/:id", getPersonajeByID);
 router.get("/nombre/:nombre", getPersonajeBynombre);
-router.get("/id/:id", getPersonajeByOrder)
+router.get("/rol/:rol", getPersonajeByRol);
+router.get("/id/:id", getPersonajeByOrder);
 router.post("/", createPersonaje);
 router.post("/:id", upload.single("foto"), createPersonaje);
 router.patch("/:id", patchPersonaje);
-router.delete("/:id", deletePersonaje)
+router.delete("/:id", deletePersonaje);
 
 module.exports = router;

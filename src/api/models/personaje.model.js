@@ -11,6 +11,7 @@ const PersonajeSchema = new Schema(
         genero:{type:String, required: false},
         rol:{type:String, required: true},
         foto:{type:String, required: true},
+        gif:{type:String, required: true},
     },
     {timestamps:true}
 );
